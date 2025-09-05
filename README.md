@@ -6,7 +6,7 @@
 [![apx-ui](https://img.shields.io/badge/tag-AllInOne--Utility-purple.svg)](https://github.com/appna-io/apx-linter)
 
 
-A comprehensive ESLint plugin for AppNA-X projects, providing standardized linting rules and configurations for React, TypeScript, and modern JavaScript development.
+A comprehensive ESLint plugin for Web Application React projects, providing standardized linting rules and configurations for React, TypeScript, and modern JavaScript development.
 
 ## All-in-One Linter Solution
 
