@@ -1,11 +1,16 @@
 # AppNA-X ESLint Plugin
 
-[![Version](https://img.shields.io/badge/version-1.0.7-blue.svg)](https://github.com/appna-io/apx-linter)
-[![License](https://img.shields.io/badge/license-ISC-green.svg)](LICENSE)
-[![AppNA-X](https://img.shields.io/badge/tag-AppNA--X-orange.svg)](https://github.com/appna-io/apx-linter)
+[![Apx Eslint](https://img.shields.io/badge/apx-linter-blue.svg)](https://github.com/appna-io/apx-linter)
+[![AppNA.io](https://img.shields.io/badge/appna-io--X-orange.svg)](https://appna.io)
 [![apx-ui](https://img.shields.io/badge/tag-apx--ui-purple.svg)](https://github.com/appna-io/apx-linter)
+[![apx-ui](https://img.shields.io/badge/tag-AllInOne--Utility-purple.svg)](https://github.com/appna-io/apx-linter)
+
 
 A comprehensive ESLint plugin for AppNA-X projects, providing standardized linting rules and configurations for React, TypeScript, and modern JavaScript development.
+
+## All-in-One Linter Solution
+
+**No need to install multiple plugins!** This is a complete, all-in-one ESLint solution that includes all recommended linting rules for modern development. Everything you need is bundled in one package - from code style and formatting to TypeScript, React, accessibility, and security best practices.
 
 ## Table of Contents
 
@@ -60,37 +65,6 @@ Add `apx-eslint` to your ESLint configuration file:
   },
   "rules": {
     // Add custom rules or override existing rules here
-  }
-}
-```
-
-### AppNA-X Project Configuration
-
-For AppNA-X projects, use the following recommended setup:
-
-```json
-{
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:apx-eslint/recommended"
-  ],
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "ecmaVersion": 2020,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
-  "rules": {
-    // AppNA-X specific rule overrides
   }
 }
 ```

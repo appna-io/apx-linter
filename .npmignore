@@ -5,3 +5,4 @@ Jenkinsfile
 output.txt
 LICENSE
 README.md
+ci.groovy
