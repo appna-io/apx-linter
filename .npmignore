@@ -1,0 +1,7 @@
+*.sh
+Jenkinsfile
+.npmrc
+*.log
+output.txt
+LICENSE
+README.md
