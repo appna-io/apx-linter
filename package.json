@@ -21,11 +21,13 @@
     "url": "https://github.com/appna-io/apx-linter.git"
   },
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+  },
   "peerDependencies": {
+    "@typescript-eslint/types": "^8.46.0",
+    "@eslint/js": "^9.37.0",
     "@typescript-eslint/eslint-plugin": "^8.46.0",
     "@typescript-eslint/parser": "^8.46.0",
-    "@eslint/js": "^9.37.0",
     "eslint": "^9.37.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -45,7 +47,6 @@
     "eslint-plugin-testing-library": "^7.13.1",
     "eslint-plugin-unicorn": "^61.0.2"
   },
-  "devDependencies": {},
   "eslintConfig": {
     "plugins": [
       "@apx-eslint"
