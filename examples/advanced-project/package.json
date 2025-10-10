@@ -1,0 +1,17 @@
+{
+  "name": "advanced-project-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Advanced example using eslint-plugin-apx-eslint with multiple configs",
+  "scripts": {
+    "lint": "apx-lint",
+    "lint:fix": "apx-lint --fix",
+    "lint:src": "apx-lint src/",
+    "lint:tests": "apx-lint '**/*.test.{ts,tsx}'"
+  },
+  "devDependencies": {
+    "eslint-plugin-apx-eslint": "^2.0.0",
+    "typescript": "^5.0.0"
+  }
+}
+

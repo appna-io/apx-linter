@@ -1,0 +1,12 @@
+{
+  "ignore": [
+    "node_modules/",
+    "dist/",
+    "build/",
+    ".next/",
+    "coverage/",
+    "*.config.js",
+    "*.setup.js"
+  ]
+}
+

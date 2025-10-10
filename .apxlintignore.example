@@ -1,0 +1,36 @@
+# APX Lint Ignore Patterns
+# Add patterns here to exclude files from linting
+# Syntax is similar to .gitignore
+
+# Dependencies
+node_modules/
+bower_components/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Generated files
+*.min.js
+*.bundle.js
+*.generated.ts
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.cache
+.eslintcache
+
+# Logs
+*.log
+

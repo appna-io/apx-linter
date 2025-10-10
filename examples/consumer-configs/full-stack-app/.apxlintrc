@@ -1,0 +1,8 @@
+{
+  "paths": [
+    "client/src/**/*.{ts,tsx}",
+    "server/src/**/*.ts",
+    "shared/**/*.ts"
+  ]
+}
+

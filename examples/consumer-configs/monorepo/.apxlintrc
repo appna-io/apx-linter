@@ -1,0 +1,7 @@
+{
+  "paths": [
+    "packages/**/src/**/*.{ts,tsx}",
+    "apps/**/src/**/*.{ts,tsx}"
+  ]
+}
+

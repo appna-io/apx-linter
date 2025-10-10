@@ -1,0 +1,15 @@
+{
+  "name": "basic-project-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Example project using eslint-plugin-apx-eslint",
+  "scripts": {
+    "lint": "apx-lint",
+    "lint:fix": "apx-lint --fix"
+  },
+  "devDependencies": {
+    "eslint-plugin-apx-eslint": "^2.0.0",
+    "typescript": "^5.0.0"
+  }
+}
+
