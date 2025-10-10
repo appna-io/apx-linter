@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-apx-eslint",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "ESLint plugin for AppNaX",
   "main": "index.js",
   "publishConfig": {
