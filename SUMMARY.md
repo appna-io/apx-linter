@@ -15,6 +15,7 @@
 **Dependencies:**
 - Moved ESLint from peer to regular dependencies
 - Moved all plugins from peer to regular dependencies
+- Added TypeScript and all TypeScript ESLint utilities
 - Users now only need to install `eslint-plugin-apx-eslint` - everything else comes with it!
 
 ```json
@@ -23,12 +24,24 @@
     "@eslint/js": "^9.37.0",
     "@typescript-eslint/eslint-plugin": "^8.46.0",
     "@typescript-eslint/parser": "^8.46.0",
+    "@typescript-eslint/type-utils": "^8.46.0",
+    "@typescript-eslint/utils": "^8.46.0",
+    "chalk": "^4.1.2",
     "eslint": "^9.37.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.0"
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=4.8.4 <6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   }
 }
 ```
