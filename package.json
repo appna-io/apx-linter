@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-apx-eslint",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "ESLint plugin for AppNaX",
   "main": "index.js",
   "publishConfig": {
@@ -21,8 +21,7 @@
     "url": "https://github.com/appna-io/apx-linter.git"
   },
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@typescript-eslint/types": "^8.46.0",
     "@eslint/js": "^9.37.0",
