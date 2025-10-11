@@ -97,7 +97,7 @@ This package includes a convenient CLI tool `apx-lint` for running ESLint with m
 After installing the package, you can use the CLI directly:
 
 ```bash
-# Lint your project (default: src/**/*.{js,jsx,ts,tsx})
+# Lint your project (default: src/**/*.{ts,tsx})
 npx apx-lint
 
 # Lint and auto-fix issues
@@ -178,7 +178,7 @@ The CLI looks for paths in this order:
 2. `.apxlintrc.json` in project root
 3. `.apxlintrc` in project root
 4. `apxlint` field in `package.json`
-5. Default: `src/**/*.{js,jsx,ts,tsx}`
+5. Default: `src/**/*.{ts,tsx}`
 
 ### Ignore Patterns
 

@@ -1,10 +1,10 @@
 {
   "name": "eslint-plugin-apx-eslint",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "ESLint plugin for AppNaX with flexible configuration options",
-  "main": "index.js",
+  "main": "eslint-plugin-apx-eslint.js",
   "bin": {
-    "apx-lint": "./bin/apx-lint.js"
+    "apx-lint": "./index.js"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
@@ -12,8 +12,8 @@
   },
   "scripts": {
     "test": "node test/run-tests.js",
-    "lint": "node bin/apx-lint.js",
-    "lint:fix": "node bin/apx-lint.js --fix",
+    "lint": "node index.js",
+    "lint:fix": "node index.js --fix",
     "upload": "npm version patch --no-git-tag-version && npm publish"
   },
   "keywords": [
@@ -31,8 +31,8 @@
   },
   "license": "ISC",
   "files": [
+    "eslint-plugin-apx-eslint.js",
     "index.js",
-    "bin/",
     "README.md",
     "LICENSE"
   ],
