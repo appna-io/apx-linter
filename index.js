@@ -60,7 +60,7 @@ function showHelp() {
 
 function getVersion() {
     try {
-        const packagePath = path.join(__dirname, '..', 'package.json');
+        const packagePath = path.join(__dirname, 'package.json');
         const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
         return pkg.version;
     } catch (error) {
@@ -159,7 +159,7 @@ function printFooter(success = true) {
 function runESLint(args, options = {}) {
     return new Promise((resolve, reject) => {
         // Find eslint in node_modules
-        const eslintPath = path.join(__dirname, '..', 'node_modules', '.bin', 'eslint');
+        const eslintPath = path.join(__dirname, 'node_modules', '.bin', 'eslint');
         
         // Check if eslint exists, otherwise use global
         const command = fs.existsSync(eslintPath) ? eslintPath : 'npx';
