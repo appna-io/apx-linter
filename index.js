@@ -158,18 +158,17 @@ function printFooter(success = true) {
 
 function runESLint(args, options = {}) {
     return new Promise((resolve, reject) => {
-        // Find eslint in node_modules
-        const eslintPath = path.join(__dirname, 'node_modules', '.bin', 'eslint');
-        
-        // Check if eslint exists, otherwise use global
-        const command = fs.existsSync(eslintPath) ? eslintPath : 'npx';
-        const finalArgs = fs.existsSync(eslintPath) ? args : ['eslint', ...args];
+        // Use npx eslint to ensure we use the consumer's ESLint with our bundled dependencies
+        const command = 'npx';
+        const finalArgs = ['eslint', ...args];
         
         console.log(chalk.cyan.bold('\n🔍 Running ESLint...\n'));
+        console.log(chalk.gray(`Command: npx eslint ${args.map(a => a.includes('*') ? `"${a}"` : a).join(' ')}\n`));
         
+        // Don't use shell: true to prevent shell from expanding globs
+        // ESLint will handle the glob expansion
         const eslint = spawn(command, finalArgs, {
             stdio: 'inherit',
-            shell: true,
             cwd: process.cwd()
         });
 
@@ -236,8 +235,10 @@ async function main() {
         });
     }
     
-    // Add paths
-    eslintArgs.push(...paths);
+    // Add paths - each path as a separate argument
+    paths.forEach(p => {
+        eslintArgs.push(p);
+    });
     
     // Show what we're linting
     printHeader(hasFix ? 'Auto-fixing Issues' : 'Checking Code Quality');
