@@ -68,6 +68,16 @@ function getVersion() {
     }
 }
 
+function getEslintVersion() {
+    try {
+        const eslintPkgPath = path.join(__dirname, 'node_modules', 'eslint', 'package.json');
+        const pkg = JSON.parse(fs.readFileSync(eslintPkgPath, 'utf8'));
+        return pkg.version;
+    } catch (error) {
+        return '9.37.0';
+    }
+}
+
 function loadConfig() {
     const configPaths = [
         path.join(process.cwd(), '.apxlintrc.json'),
@@ -243,7 +253,11 @@ async function main() {
     // Show what we're linting
     printHeader(hasFix ? 'Auto-fixing Issues' : 'Checking Code Quality');
     
+    // Get ESLint version
+    const eslintVersion = getEslintVersion();
+    
     const configInfo = [
+        `${chalk.cyan('ESLint:')} ${chalk.green('v' + eslintVersion)}`,
         `${chalk.cyan('Mode:')} ${hasFix ? chalk.green('Fix') : chalk.blue('Check')}`,
         `${chalk.cyan('Paths:')} ${chalk.yellow(paths.join(', '))}`
     ];
