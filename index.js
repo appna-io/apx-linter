@@ -12,7 +12,8 @@ const baseRules = {
     '@typescript-eslint/no-explicit-any': 'warn',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
-    'no-tabs': 'off',
+    'no-tabs': 'error',
+    'no-mixed-spaces-and-tabs': 'error',
     'import/order': 'off',
     'import/no-unresolved': 'error',
     'import/extensions': [
