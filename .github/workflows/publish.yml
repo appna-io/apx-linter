@@ -1,0 +1,79 @@
+name: Publish to npm
+
+on:
+  push:
+    branches: [main]
+
+# Don't re-run on the version-bump commit this workflow pushes back to main.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write # commit the version bump + push git tags
+
+jobs:
+  publish:
+    if: |
+      !contains(github.event.head_commit.message, '[skip ci]') &&
+      !contains(github.event.head_commit.message, '[skip publish]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump patch version
+        run: npm version patch --no-git-tag-version
+
+      - name: Read new version
+        id: version
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Commit version bump
+        run: |
+          git add -A
+          git commit -m "chore: release v${{ steps.version.outputs.version }} [skip ci]"
+          git push
+
+      # Write the token to the user-level .npmrc (~/.npmrc, outside the repo) and
+      # AFTER the version-bump commit, so `git add` can never capture the secret.
+      # publishConfig.registry in package.json routes the publish to npmjs, which
+      # matches this host-scoped token line.
+      - name: Authenticate to npm
+        run: |
+          if [ -z "${NPM_TOKEN}" ]; then
+            echo "::error::NPM_TOKEN is empty. Add it as a repository secret (Settings → Secrets and variables → Actions → Secrets tab), named NPM_TOKEN — not a Variable, not an Environment/Org secret."
+            exit 1
+          fi
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify npm auth
+        run: npm whoami --registry=https://registry.npmjs.org/
+
+      - name: Publish to npm
+        run: npm publish
+
+      - name: Create Git tag
+        run: |
+          git tag "v${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}"
