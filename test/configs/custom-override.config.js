@@ -1,4 +1,4 @@
-const apxLinter = require('../../index.js');
+const apxLinter = require('../../eslint-plugin-apx-eslint.js');
 
 // Example: Create a config with custom rule overrides
 module.exports = [

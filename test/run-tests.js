@@ -30,8 +30,7 @@ async function runTest(testName, configFile, testFile) {
 
     try {
         const eslint = new ESLint({
-            overrideConfigFile: configFile,
-            useEslintrc: false
+            overrideConfigFile: configFile
         });
 
         const results = await eslint.lintFiles([testFile]);
