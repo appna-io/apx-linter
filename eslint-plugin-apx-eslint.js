@@ -45,7 +45,7 @@ const baseRules = {
     'no-debugger': 'warn',
     'no-undef': 'error',
     'quotes': ['error', 'single'],
-    'no-duplicate-imports': 'error',
+    'no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],
     'comma-spacing': 'error',
     'array-bracket-spacing': ['error', 'never'],
     'semi': [2, 'always'],
